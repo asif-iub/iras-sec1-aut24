@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Dashboard {
+public class Profile {
     @FXML
     protected void onLogOutButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -23,8 +23,8 @@ public class Dashboard {
     }
 
     @FXML
-    protected void goToProfile(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("profile.fxml"));
+    protected void onBackButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboard.fxml"));
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
