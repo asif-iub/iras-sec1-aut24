@@ -9,6 +9,6 @@ public class HelloController {
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to CSE213-Object Oriented Programming Course!");
+        welcomeText.setText("Welcome to \nCSE213-Object Oriented Programming \ncourse!");
     }
 }
