@@ -12,12 +12,12 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <TextField promptText="Username">
+   <TextField fx:id="usernameInput" promptText="Username">
       <font>
          <Font size="24.0" />
       </font>
    </TextField>
-   <PasswordField promptText="Password">
+   <PasswordField fx:id="passwordInput" promptText="Password">
       <font>
          <Font size="24.0" />
       </font>
