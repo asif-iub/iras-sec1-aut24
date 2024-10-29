@@ -27,7 +27,7 @@
       <font>
          <Font size="24.0" />
       </font></Label>
-    <Button onAction="#onSignInButtonClick" text="Log In">
+    <Button defaultButton="true" onAction="#onSignInButtonClick" text="Log In">
       <font>
          <Font size="24.0" />
       </font></Button>
