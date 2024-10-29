@@ -47,6 +47,13 @@ public class UserManagementController {
         ageTC.setCellValueFactory(new PropertyValueFactory<>("age"));
     }
 
+    @FXML
+    void onDeleteUserButtonClick(ActionEvent event) {
+        int i = userTableView.getSelectionModel().getSelectedIndex();
+        if (i >= 0) {
+            userTableView.getItems().remove(i);
+        }
+    }
 
     @FXML
     void onAddUserButtonClick(ActionEvent event) {
