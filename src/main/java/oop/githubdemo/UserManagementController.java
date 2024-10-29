@@ -46,7 +46,12 @@ public class UserManagementController {
 
     @FXML
     void onAddUserButtonClick(ActionEvent event) {
+        String username = usernameTF.getText();
+        String password = passwordTF.getText();
+        int age = Integer.parseInt(ageTF.getText());
 
+        User u = new User(username, password, age);
+        userTableView.getItems().add(u);
     }
 
     @FXML
