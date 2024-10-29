@@ -36,19 +36,24 @@
          <Font size="24.0" />
       </font>
    </TextField>
-   <TextField fx:id="passwordTF" layoutX="14.0" layoutY="175.0" prefHeight="51.0" prefWidth="162.0" promptText="Password">
+   <TextField fx:id="passwordTF" layoutX="16.0" layoutY="161.0" prefHeight="51.0" prefWidth="162.0" promptText="Password">
       <font>
          <Font size="24.0" />
       </font>
    </TextField>
-   <TextField fx:id="ageTF" layoutX="16.0" layoutY="243.0" prefHeight="51.0" prefWidth="162.0" promptText="Age">
+   <TextField fx:id="ageTF" layoutX="16.0" layoutY="219.0" prefHeight="51.0" prefWidth="162.0" promptText="Age">
       <font>
          <Font size="24.0" />
       </font>
    </TextField>
-   <Button layoutX="16.0" layoutY="321.0" mnemonicParsing="false" onAction="#onAddUserButtonClick" prefHeight="51.0" prefWidth="162.0" text="Add User">
+   <Button layoutX="16.0" layoutY="279.0" mnemonicParsing="false" onAction="#onAddUserButtonClick" prefHeight="51.0" prefWidth="162.0" text="Add User">
       <font>
          <Font size="24.0" />
       </font>
    </Button>
+   <Label fx:id="messageLabel" layoutX="14.0" layoutY="335.0" prefHeight="60.0" prefWidth="162.0" wrapText="true">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
 </AnchorPane>

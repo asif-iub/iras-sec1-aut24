@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -37,6 +38,9 @@ public class UserManagementController {
     @FXML
     private TextField usernameTF;
 
+    @FXML
+    private Label messageLabel;
+
     public void initialize() {
         usernameTC.setCellValueFactory(new PropertyValueFactory<>("username"));
         passwordTC.setCellValueFactory(new PropertyValueFactory<>("password"));
@@ -46,12 +50,42 @@ public class UserManagementController {
 
     @FXML
     void onAddUserButtonClick(ActionEvent event) {
-        String username = usernameTF.getText();
-        String password = passwordTF.getText();
-        int age = Integer.parseInt(ageTF.getText());
+        try {
+            String username = usernameTF.getText();
+            if (username.isBlank()) {
+                messageLabel.setText("Username cannot be empty!");
+                return;
+            }
+            if (username.contains(" ")) {
+                messageLabel.setText("Invalid username!");
+                return;
+            }
 
-        User u = new User(username, password, age);
-        userTableView.getItems().add(u);
+            for (User u: userTableView.getItems()) {
+                if (u.getUsername().equals(username)) {
+                    messageLabel.setText("This username is not available!");
+                    return;
+                }
+            }
+
+            String password = passwordTF.getText();
+            if (password.isBlank()) {
+                messageLabel.setText("Password cannot be empty");
+                return;
+            }
+
+            int age = Integer.parseInt(ageTF.getText());
+            if (age < 18) {
+                messageLabel.setText("User must be at least 18 years old!");
+                return;
+            }
+
+            User u = new User(username, password, age);
+            userTableView.getItems().add(u);
+        }
+        catch (NumberFormatException e) {
+            messageLabel.setText("Invalid age!");
+        }
     }
 
     @FXML
