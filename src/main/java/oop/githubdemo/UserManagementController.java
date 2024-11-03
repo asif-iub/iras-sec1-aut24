@@ -45,7 +45,7 @@ public class UserManagementController {
     public void initialize() {
         usernameTC.setCellValueFactory(new PropertyValueFactory<>("username"));
         passwordTC.setCellValueFactory(new PropertyValueFactory<>("password"));
-//        ageTC.setCellValueFactory(new PropertyValueFactory<>("age"));
+        ageTC.setCellValueFactory(new PropertyValueFactory<>("age"));
         dobTC.setCellValueFactory(new PropertyValueFactory<>("dob"));
     }
 
