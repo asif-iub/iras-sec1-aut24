@@ -6,14 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class UserManagementController {
 
@@ -30,7 +28,10 @@ public class UserManagementController {
     private TableColumn<User, Integer> ageTC;
 
     @FXML
-    private TextField ageTF;
+    private TableColumn<User, LocalDate> dobTC;
+
+    @FXML
+    private DatePicker dobDP;
 
     @FXML
     private TextField passwordTF;
@@ -44,7 +45,8 @@ public class UserManagementController {
     public void initialize() {
         usernameTC.setCellValueFactory(new PropertyValueFactory<>("username"));
         passwordTC.setCellValueFactory(new PropertyValueFactory<>("password"));
-        ageTC.setCellValueFactory(new PropertyValueFactory<>("age"));
+//        ageTC.setCellValueFactory(new PropertyValueFactory<>("age"));
+        dobTC.setCellValueFactory(new PropertyValueFactory<>("dob"));
     }
 
     @FXML
@@ -81,13 +83,13 @@ public class UserManagementController {
                 return;
             }
 
-            int age = Integer.parseInt(ageTF.getText());
-            if (age < 18) {
+            LocalDate dob = dobDP.getValue();
+            if (dob == null || dob.plusYears(18).isAfter(LocalDate.now())){
                 messageLabel.setText("User must be at least 18 years old!");
                 return;
             }
 
-            User u = new User(username, password, age);
+            User u = new User(username, password, dob);
             userTableView.getItems().add(u);
         }
         catch (NumberFormatException e) {

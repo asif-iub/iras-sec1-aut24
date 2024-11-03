@@ -1,13 +1,15 @@
 package oop.githubdemo;
 
+import java.time.LocalDate;
+
 public class User {
     String username, password;
-    int age;
+    LocalDate dob;
 
-    public User(String username, String password, int age) {
+    public User(String username, String password, LocalDate dob) {
         this.username = username;
         this.password = password;
-        this.age = age;
+        this.dob = dob;
     }
 
     public String getUsername() {
@@ -26,11 +28,21 @@ public class User {
         this.password = password;
     }
 
-    public int getAge() {
-        return age;
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", dob=" + dob +
+                '}';
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public LocalDate getDob() {
+        return dob;
     }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
 }
