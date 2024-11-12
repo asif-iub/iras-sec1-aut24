@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class HelloController {
     @FXML
@@ -28,21 +29,23 @@ public class HelloController {
         String username = usernameInput.getText();
         String password = passwordInput.getText();
 
-        if (username.equals("asif") && password.equals("1234")) {
-            msgLabel.setText("Log in successful!");
+        UserManager userManager = new UserManager();
+        List<User> userList = userManager.getUsers();
 
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboard.fxml"));
-            Parent root = fxmlLoader.load();
+        for (User u : userList) {
+            if (username.equals(u.getUsername()) && password.equals(u.getPassword())) {
+                msgLabel.setText("Log in successful!");
 
-            Scene scene = new Scene(root);
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
+                Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            Stage stage = new Stage();
-            stage.setScene(scene);
-//            stage.show();
+                Scene scene = new Scene(root);
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                return;
+            }
         }
-        else {
-            msgLabel.setText(("Log in failed!"));
-        }
+        msgLabel.setText(("Log in failed!"));
     }
 }
