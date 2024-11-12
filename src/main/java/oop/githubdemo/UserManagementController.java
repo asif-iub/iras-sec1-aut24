@@ -47,13 +47,16 @@ public class UserManagementController {
         passwordTC.setCellValueFactory(new PropertyValueFactory<>("password"));
         ageTC.setCellValueFactory(new PropertyValueFactory<>("age"));
         dobTC.setCellValueFactory(new PropertyValueFactory<>("dob"));
+
+        userTableView.getItems().addAll(UserManager.getUsers());
     }
 
     @FXML
     void onDeleteUserButtonClick(ActionEvent event) {
-        int i = userTableView.getSelectionModel().getSelectedIndex();
-        if (i >= 0) {
-            userTableView.getItems().remove(i);
+        User selectedUser = userTableView.getSelectionModel().getSelectedItem();
+        if (selectedUser != null) {
+            userTableView.getItems().remove(selectedUser);
+            UserManager.deleteUser(selectedUser);
         }
     }
 
@@ -91,6 +94,7 @@ public class UserManagementController {
 
             User u = new User(username, password, dob);
             userTableView.getItems().add(u);
+            UserManager.addUser(u);
         }
         catch (NumberFormatException e) {
             messageLabel.setText("Invalid age!");

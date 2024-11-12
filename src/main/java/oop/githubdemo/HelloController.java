@@ -29,8 +29,8 @@ public class HelloController {
         String username = usernameInput.getText();
         String password = passwordInput.getText();
 
-        UserManager userManager = new UserManager();
-        List<User> userList = userManager.getUsers();
+//        UserManager userManager = new UserManager();
+        List<User> userList = UserManager.getUsers();
 
         for (User u : userList) {
             if (username.equals(u.getUsername()) && password.equals(u.getPassword())) {
