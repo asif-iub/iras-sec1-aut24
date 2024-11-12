@@ -6,11 +6,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class Profile {
+    @FXML
+    private TextField usernameInput;
+
+    @FXML
+    void initialize() {
+        usernameInput.setText(UserManager.getLoggedInUser().getUsername());
+    }
+
     @FXML
     protected void onLogOutButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));

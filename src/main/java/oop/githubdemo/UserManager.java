@@ -6,6 +6,7 @@ import java.util.List;
 
 public class UserManager {
     private static final List<User> userList = new ArrayList<>();
+    private static User loggedInUser = null;
 
     static {
         userList.add(new User("asif", "1234", LocalDate.now().minusYears(30)));
@@ -29,5 +30,13 @@ public class UserManager {
         System.out.println("User added: " + user.getUsername());
         System.out.println("Current number of registered users: " + userList.size());
         System.out.println();
+    }
+
+    public static User getLoggedInUser() {
+        return loggedInUser;
+    }
+
+    public static void setLoggedInUser(User loggedInUser) {
+        UserManager.loggedInUser = loggedInUser;
     }
 }

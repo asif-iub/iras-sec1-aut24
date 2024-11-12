@@ -35,6 +35,7 @@ public class HelloController {
         for (User u : userList) {
             if (username.equals(u.getUsername()) && password.equals(u.getPassword())) {
                 msgLabel.setText("Log in successful!");
+                UserManager.setLoggedInUser(u);
 
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
                 Parent root = fxmlLoader.load();
