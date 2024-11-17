@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -121,6 +123,21 @@ public class UserManagementController {
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+    }
+
+    @FXML
+    void onLoadText(ActionEvent event) throws IOException {
+        FileReader fr = new FileReader("user.txt");
+
+        char[] content = new char[20];
+        while (true) {
+            int ret = fr.read(content);
+            if (ret == -1)
+                break;
+            System.out.println(new String(content));
+        }
+
+        fr.close();
     }
 
 }
