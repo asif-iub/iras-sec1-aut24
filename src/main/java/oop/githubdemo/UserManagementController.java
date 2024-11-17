@@ -128,15 +128,16 @@ public class UserManagementController {
     @FXML
     void onLoadText(ActionEvent event) throws IOException {
         FileReader fr = new FileReader("user.txt");
+        BufferedReader br = new BufferedReader(fr);
 
-        char[] content = new char[20];
         while (true) {
-            int ret = fr.read(content);
-            if (ret == -1)
+            String line = br.readLine();
+            if (line == null)
                 break;
-            System.out.println(new String(content));
+            System.out.println(line);
         }
 
+        br.close();
         fr.close();
     }
 
