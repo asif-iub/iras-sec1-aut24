@@ -11,6 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -127,18 +128,27 @@ public class UserManagementController {
 
     @FXML
     void onLoadText(ActionEvent event) throws IOException {
-        FileReader fr = new FileReader("user.txt");
-        BufferedReader br = new BufferedReader(fr);
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader("user.txt"));
 
-        while (true) {
-            String line = br.readLine();
-            if (line == null)
-                break;
-            System.out.println(line);
+            while (true) {
+                String line = br.readLine();
+                if (line == null)
+                    break;
+                System.out.println(line);
+            }
         }
-
-        br.close();
-        fr.close();
+        catch(FileNotFoundException e){
+            System.out.println("Error: Could not open file!");
+        }
+        catch(IOException e) {
+            System.out.println("Error: Could not read from the file!");
+        }
+        finally {
+            if (br != null)
+                br.close();
+        }
     }
 
 }
