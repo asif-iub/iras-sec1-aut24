@@ -24,7 +24,18 @@ public class Dashboard {
 
     @FXML
     protected void goToProfile(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("profile.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("raghibul/profile.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Scene scene = new Scene(root);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+    }
+
+    @FXML
+    protected void goToChart(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("momo/chart.fxml"));
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
@@ -35,7 +46,7 @@ public class Dashboard {
 
     @FXML
     protected void goToUserManagement(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("user-management.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("momo/user-management.fxml"));
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);

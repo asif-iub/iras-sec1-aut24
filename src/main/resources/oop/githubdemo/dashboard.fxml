@@ -27,5 +27,10 @@
             <Font size="24.0" />
          </font>
       </Button>
+      <Button layoutX="14.0" layoutY="230.0" mnemonicParsing="false" onAction="#goToChart" prefHeight="129.0" prefWidth="135.0" text="Chart">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
