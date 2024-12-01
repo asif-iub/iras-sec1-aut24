@@ -1,4 +1,4 @@
-package oop.githubdemo;
+package oop.githubdemo.momo;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import oop.githubdemo.HelloApplication;
+import oop.githubdemo.User;
+import oop.githubdemo.UserManager;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

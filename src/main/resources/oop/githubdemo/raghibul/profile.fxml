@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.githubdemo.Profile">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.githubdemo.raghibul.Profile">
    <children>
       <Label layoutX="75.0" layoutY="14.0" text="Profile" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="14.0">
          <font>
