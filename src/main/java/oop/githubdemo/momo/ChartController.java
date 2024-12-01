@@ -5,43 +5,35 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.XYChart.*;
+import javafx.scene.chart.PieChart;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import oop.githubdemo.HelloApplication;
+import oop.githubdemo.User;
+import oop.githubdemo.UserManager;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ChartController {
     @javafx.fxml.FXML
-    private LineChart<String, Integer> chart;
+    private PieChart chart;
 
     @javafx.fxml.FXML
     public void onLoadButtonClick(ActionEvent actionEvent) {
-        Series<String, Integer> s23 = new Series<>();
-        s23.setName("2023");
-        s23.getData().add(new Data<>("Dhaka", 64));
-        s23.getData().add(new Data<>("Rajshahi", 39));
-        s23.getData().add(new Data<>("Chittagong", 75));
-        s23.getData().add(new Data<>("Khulna", 77));
+        List<User> userList = UserManager.getUsers();
 
-        Series<String, Integer> s24 = new Series<>();
-        s24.setName("2024");
-        s24.getData().add(new Data<>("Dhaka", 29));
-        s24.getData().add(new Data<>("Rajshahi", 82));
-        s24.getData().add(new Data<>("Chittagong", 81));
-        s24.getData().add(new Data<>("Khulna", 35));
+        int young, middleAged, old;
+        young = middleAged = old = 0;
+        for (User u: userList) {
+            if (u.getAge() < 30) young += 1;
+            else if (u.getAge() < 50) middleAged += 1;
+            else old += 1;
+        }
 
-        Series<String, Integer> s25 = new Series<>();
-        s25.setName("2025");
-        s25.getData().add(new Data<>("Dhaka", 72));
-        s25.getData().add(new Data<>("Rajshahi", 43));
-        s25.getData().add(new Data<>("Chittagong", 71));
-        s25.getData().add(new Data<>("Khulna", 7));
-
-        chart.getData().addAll(s23, s24, s25);
+        chart.getData().add(new PieChart.Data("Young", young));
+        chart.getData().add(new PieChart.Data("Middle Aged", middleAged));
+        chart.getData().add(new PieChart.Data("Old", old));
     }
 
     @FXML
