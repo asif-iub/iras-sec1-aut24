@@ -1,6 +1,8 @@
 module oop.githubdemo {
     requires javafx.controls;
     requires javafx.fxml;
+    requires kernel;
+    requires layout;
 
 
     opens oop.githubdemo to javafx.fxml;
