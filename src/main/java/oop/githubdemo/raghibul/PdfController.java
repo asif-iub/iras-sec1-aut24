@@ -46,7 +46,6 @@ public class PdfController {
         PdfWriter writer = new PdfWriter(selectedFile);
         PdfDocument pdf = new PdfDocument(writer);
         Document document = new Document(pdf);
-        document.add(new Paragraph("We are creating PDF from our application!"));
 
         Table table = new Table(new float[]{3, 1, 1});
         table.setWidth(UnitValue.createPercentValue(100));
