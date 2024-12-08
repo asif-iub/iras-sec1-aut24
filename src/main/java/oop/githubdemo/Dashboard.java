@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class Dashboard {
     @FXML
@@ -64,5 +65,12 @@ public class Dashboard {
 
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(scene);
+    }
+
+    @FXML
+    public void generateData(ActionEvent actionEvent) {
+        UserManager.addUser(new User("asif", "1234", LocalDate.now().minusYears(30)));
+        UserManager.addUser(new User("test", "test", LocalDate.now().minusYears(20).minusMonths(2)));
+        UserManager.addUser(new User("admin", "0987", LocalDate.now().minusYears(50).minusMonths(6).minusDays(20)));
     }
 }
