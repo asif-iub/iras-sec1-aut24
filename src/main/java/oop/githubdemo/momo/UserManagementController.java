@@ -13,10 +13,7 @@ import oop.githubdemo.HelloApplication;
 import oop.githubdemo.User;
 import oop.githubdemo.UserManager;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 
 public class UserManagementController {
@@ -171,5 +168,22 @@ public class UserManagementController {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(scene);
 
+    }
+
+    @FXML
+    public void onSave(ActionEvent actionEvent) throws IOException{
+        ObjectOutputStream oos = null;
+        try {
+            oos = new ObjectOutputStream(new FileOutputStream("user.bin"));
+            for (User u : userTableView.getItems()) {
+                oos.writeObject(u);
+            }
+        }
+        catch (IOException e){}
+        finally {
+            if (oos != null) {
+                oos.close();
+            }
+        }
     }
 }

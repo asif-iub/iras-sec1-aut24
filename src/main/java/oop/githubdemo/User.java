@@ -1,10 +1,11 @@
 package oop.githubdemo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import static java.time.temporal.ChronoUnit.YEARS;
 
-public class User {
+public class User implements Serializable {
     String username, password;
     LocalDate dob;
 

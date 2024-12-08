@@ -62,7 +62,12 @@
       </font>
    </Button>
    <DatePicker fx:id="dobDP" layoutX="16.0" layoutY="222.0" prefHeight="41.0" prefWidth="162.0" />
-   <Button layoutX="198.0" layoutY="340.0" mnemonicParsing="false" onAction="#onEdit" prefHeight="51.0" prefWidth="162.0" text="Edit" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="198.0">
+   <Button layoutX="340.0" layoutY="340.0" mnemonicParsing="false" onAction="#onEdit" prefHeight="51.0" prefWidth="74.0" text="Edit" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="340.0">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Button>
+   <Button layoutX="198.0" layoutY="341.0" mnemonicParsing="false" onAction="#onSave" prefHeight="51.0" prefWidth="94.0" text="Save" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="198.0">
       <font>
          <Font size="24.0" />
       </font>
