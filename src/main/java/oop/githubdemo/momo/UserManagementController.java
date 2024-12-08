@@ -129,7 +129,7 @@ public class UserManagementController {
         stage.setScene(scene);
     }
 
-    @FXML
+    @Deprecated
     void onLoadText(ActionEvent event) throws IOException {
         BufferedReader br = null;
         try {
@@ -154,4 +154,22 @@ public class UserManagementController {
         }
     }
 
+    @FXML
+    public void onEdit(ActionEvent actionEvent) throws IOException {
+        User selectedUser = userTableView.getSelectionModel().getSelectedItem();
+        if (selectedUser == null) return;
+
+        // change scene to edit user
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("momo/edit-user.fxml"));
+        Parent root = fxmlLoader.load();
+
+        EditUserController controller = fxmlLoader.getController();
+        controller.setUser(selectedUser);
+
+        Scene scene = new Scene(root);
+
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+
+    }
 }
