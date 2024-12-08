@@ -24,7 +24,7 @@ public class UserManager {
                 System.out.println("Added User: " + u.toString());
             }
         }catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         finally {
             if (ois != null) {
